@@ -1,6 +1,9 @@
 [build]
-  command = "pnpm --filter=www run build"
+  command = "pnpm install && pnpm --filter=www run build"
   publish = "apps/www/.next"
 
-[functions]
-  directory = "apps/www/.netlify/functions"
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "20"
